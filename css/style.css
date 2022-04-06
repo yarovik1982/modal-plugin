@@ -1,0 +1,94 @@
+
+.modal-close{
+   font-size: 30px;
+   cursor: pointer;
+   /* border: none; */
+   /* background-color: transparent; */
+}
+.modal {
+   --transition-time: .3s;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   z-index: 999;
+   background-color: rgba(0, 0, 0, .5);
+   overflow-x: hidden;
+   overflow-y: auto;
+   cursor:pointer;
+   opacity: 0;
+   visibility: hidden;
+   text-align: center;
+   transition: opacity var(--transition-time), visibilityvar(--transition-time);
+   -webkit-transition: opacity var(--transition-time), visibilityvar(--transition-time);
+   -moz-transition: opacity var(--transition-time), visibilityvar(--transition-time);
+   -ms-transition: opacity var(--transition-time), visibilityvar(--transition-time);
+   -o-transition: opacity var(--transition-time), visibilityvar(--transition-time);
+}
+.modal::before{
+   content:"";
+   display: inline-block;
+   vertical-align: middle;
+   height: 100%;
+}
+.modal__container {
+   position: relative;
+   width: 1000px;
+   margin: 50px auto;
+   /* display: inline-block; */
+   display: none;
+   vertical-align: middle;
+   background-color: #fff;
+   border-radius: 20px;
+   cursor: default;
+}
+@media(max-width:1024px){
+   .modal__container{
+      width: 90%;
+   }
+}
+
+.modal.is-open{
+   opacity: 1;
+   visibility: visible;
+   transition:opacity .3s, visibility .3;
+   -webkit-transition:opacity  var(--transition-time), visibility var(--transition-time);
+   -moz-transition:var(--transition-time), visibility var(--transition-time);
+   -ms-transition:var(--transition-time), visibility var(--transition-time);
+   -o-transition:var(--transition-time), visibility var(--transition-time);
+}
+.modal__container.modal-open{
+   display: inline-block;
+}
+.fade{
+   opacity: 0;
+   transition: opacity .3s;
+   -webkit-transition: opacity var(--transition-time);
+   -moz-transition:  opacity var(--transition-time);
+   -ms-transition:  opacity var(--transition-time);
+   -o-transition:  opacity var(--transition-time);
+}
+.fade.animate-open{
+   opacity: 1;
+   transition:  opacity var(--transition-time);
+   -webkit-transition:  opacity var(--transition-time);
+   -moz-transition:  opacity var(--transition-time);
+   -ms-transition:  opacity var(--transition-time);
+   -o-transition:  opacity var(--transition-time);
+}
+*:focus{
+   outline: 3px solid red;
+}
+.content{
+   min-height: 200vh;
+}
+.disable-scroll{
+   position: relative;
+   overflow: hidden;
+   height: 100vh;
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+}
